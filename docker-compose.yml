@@ -1,0 +1,13 @@
+version: "3"
+services:
+  anvil-uplink:
+    # if something fails or the server is restarted, the container will restart
+    restart: always 
+    container_name: anvil-uplink
+    image: anvil-uplink
+    volumes:
+      - ./cnn_connect4.h5:/app_folder/cnn_connect4.h5
+      - ./tensorflow_model.h5:/app_folder/tensorflow_model.h5
+    build: 
+      # build the image from the Dockerfile in the current directory
+      context: .
